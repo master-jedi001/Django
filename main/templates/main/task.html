@@ -1,0 +1,27 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Создание задачи
+{% endblock %}
+
+{% block header %}
+Создание задачи
+{% endblock %}
+
+{% block body %}
+    <form method="post">
+      {% csrf_token %}
+
+      <div class="mb-3">
+        <label for="title" class="form-label">Название задачи</label>
+        {{ form.title }}
+        <div id="titleHelp" class="form-text">Введите краткое название задачи</div>
+      </div>
+      <div class="mb-3">
+        <label for="description" class="form-label">Описание задачи</label>
+        {{ form.description }}
+        <div id="descriptionHelp" class="form-text">Введите описание Вашей задачи</div>
+      </div>
+      <button type="submit" class="btn btn-primary">Добавить</button>
+    </form>
+{% endblock %}
