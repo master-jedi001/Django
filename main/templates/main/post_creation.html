@@ -1,0 +1,27 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Добавление статьи
+{% endblock %}
+
+{% block header %}
+Добавление статьи
+{% endblock %}
+
+{% block body %}
+    <form method="post">
+      {% csrf_token %}
+
+      <div class="mb-3">
+        <label for="title" class="form-label">Заголовок статьи</label>
+        {{ form.title }}
+        <div id="titleHelp" class="form-text">Должен содержать не более 100 символов</div>
+      </div>
+      <div class="mb-3">
+        <label for="text" class="form-label">Краткая аннотация статьи</label>
+        {{ form.text }}
+        <div id="textHelp" class="form-text">Должна содержать не более 2000 символов</div>
+      </div>
+      <button type="submit" class="btn btn-primary">Добавить</button>
+    </form>
+{% endblock %}

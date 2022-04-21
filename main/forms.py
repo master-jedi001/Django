@@ -1,4 +1,4 @@
-from .models import Task
+from .models import Task, Post
 from django.forms import ModelForm, TextInput
 
 
@@ -16,5 +16,23 @@ class TaskForm(ModelForm):
                 "class": "form-control",
                 "id": "description",
                 "aria-describedby": "descriptionHelp"
+            })
+        }
+
+
+class PostForm(ModelForm):
+    class Meta:
+        model = Post
+        fields = ["title", "text"]
+        widgets = {
+            "title": TextInput(attrs={
+                "class": "form-control",
+                "id": "title",
+                "aria-describedby": "titleHelp"
+            }),
+            "text": TextInput(attrs={
+                "class": "form-control",
+                "id": "text",
+                "aria-describedby": "textHelp"
             })
         }
